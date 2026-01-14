@@ -4,23 +4,40 @@
   --color-brand-blue: rgb(0, 96, 174);
   --color-brand-green: rgb(10, 114, 72);
   --color-brand-lila: rgb(241, 244, 255);
+  
+  /* Neo Brutalist Custom Shadows */
+  --shadow-neo: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neo-sm: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neo-lg: 8px 8px 0px 0px rgba(0, 0, 0, 1);
 }
 
 @layer base {
   :root {
     @apply bg-brand-lila text-gray-900 selection:bg-brand-blue selection:text-white;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   body {
     @apply m-0 min-h-screen antialiased;
+    background-image: radial-gradient(#000000 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-opacity: 0.1;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tighter;
+    @apply font-black tracking-tight text-black;
   }
 
-  * {
-    @apply box-border scroll-smooth;
+  /* Neo Brutalist Base Styles */
+  .neo-box {
+    @apply border-2 border-black shadow-neo bg-white transition-all duration-200;
+  }
+  
+  .neo-button {
+    @apply border-2 border-black shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-200 font-bold uppercase tracking-wider;
+  }
+
+  .neo-input {
+    @apply border-2 border-black p-4 shadow-neo-sm focus:shadow-neo focus:outline-none transition-all duration-200 bg-white;
   }
 }

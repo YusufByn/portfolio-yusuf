@@ -1,83 +1,57 @@
 import { motion } from 'framer-motion';
-import { Send, ArrowRight } from 'lucide-react';
+import { Send, Mail, MapPin } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <main className="pt-32 pb-20 px-6 min-h-screen">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-          >
-            <h1 className="text-6xl md:text-[6rem] font-black text-gray-900 tracking-tighter leading-[0.9] mb-12">
-              LET'S WORK <br /> <span className="text-brand-blue">TOGETHER</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-md leading-relaxed mb-12">
-              Prêt à automatiser vos workflows ou à créer une application web incroyable ? Discutons-en.
-            </p>
-            
-            <div className="space-y-6">
-              <a href="mailto:hello@yusuf.dev" className="block text-2xl font-bold text-gray-900 hover:text-brand-blue transition-colors">
-                hello@yusuf.dev
-              </a>
-              <div className="flex gap-8">
-                {['LinkedIn', 'GitHub', 'Twitter'].map(social => (
-                  <a key={social} href="#" className="font-bold text-gray-400 hover:text-brand-blue uppercase tracking-widest text-sm transition-colors">
-                    {social}
-                  </a>
-                ))}
+    <main className="pt-32 pb-20 px-6 min-h-screen bg-brand-lila">
+      <div className="max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-white border-4 border-black shadow-neo-lg p-8 md:p-12 relative"
+        >
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-brand-blue text-white border-4 border-black px-8 py-2 font-black text-2xl uppercase shadow-neo rotate-2">
+            Contact Me
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h1 className="text-4xl font-black mb-6 uppercase">Let's build <br/> something <span className="bg-brand-green px-2 text-white">crazy.</span></h1>
+              <p className="font-medium text-lg mb-8 border-l-4 border-black pl-4">
+                Vous avez une idée ? Un projet ? Ou juste envie de dire bonjour ? Remplissez ce formulaire brut de décoffrage.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 font-bold border-2 border-black p-4 bg-brand-lila shadow-neo-sm">
+                  <Mail className="shrink-0" />
+                  <span>hello@yusuf.dev</span>
+                </div>
+                <div className="flex items-center gap-4 font-bold border-2 border-black p-4 bg-brand-lila shadow-neo-sm">
+                  <MapPin className="shrink-0" />
+                  <span>Paris, France</span>
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="bg-white rounded-[2.5rem] p-10 md:p-12 shadow-2xl border border-gray-100"
-          >
-            <form className="space-y-8">
+            <form className="space-y-6">
               <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Nom Complet</label>
-                <input 
-                  type="text" 
-                  className="w-full bg-gray-50 border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-brand-blue transition-all font-medium"
-                  placeholder="Jean Dupont"
-                />
+                <label className="font-black uppercase text-sm">Nom</label>
+                <input type="text" className="neo-input w-full" placeholder="VOTRE NOM" />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Email</label>
-                <input 
-                  type="email" 
-                  className="w-full bg-gray-50 border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-brand-blue transition-all font-medium"
-                  placeholder="jean@example.com"
-                />
+                <label className="font-black uppercase text-sm">Email</label>
+                <input type="email" className="neo-input w-full" placeholder="VOTRE@EMAIL.COM" />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Budget</label>
-                <select className="w-full bg-gray-50 border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-brand-blue transition-all font-medium appearance-none">
-                  <option>Sélectionnez un budget...</option>
-                  <option>&lt; 3k €</option>
-                  <option>3k - 5k €</option>
-                  <option>5k - 10k €</option>
-                  <option>10k € +</option>
-                </select>
+                <label className="font-black uppercase text-sm">Message</label>
+                <textarea rows="4" className="neo-input w-full" placeholder="VOTRE MESSAGE..."></textarea>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Votre Message</label>
-                <textarea 
-                  rows="4"
-                  className="w-full bg-gray-50 border-none rounded-2xl px-6 py-5 focus:ring-2 focus:ring-brand-blue transition-all font-medium"
-                  placeholder="Décrivez votre projet..."
-                ></textarea>
-              </div>
-              <button className="w-full bg-brand-green text-white py-6 rounded-2xl font-black text-xl flex items-center justify-center gap-3 hover:opacity-90 transition-opacity group">
-                Envoyer le message
-                <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <button className="neo-button w-full bg-black text-white hover:bg-gray-900 py-4 flex items-center justify-center gap-3 text-lg">
+                ENVOYER <Send size={20} />
               </button>
             </form>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </main>
   );

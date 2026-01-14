@@ -1,57 +1,42 @@
-import { FileText, ArrowUpRight } from 'lucide-react';
+import { FileText, Download } from 'lucide-react';
 
 export default function Profile() {
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          <div className="relative group">
-            <div className="aspect-[4/5] bg-gray-200 rounded-[2.5rem] overflow-hidden relative shadow-2xl">
-              {/* Image Placeholder */}
-              <div className="w-full h-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-6xl font-black italic select-none">
-                YUSUF
-              </div>
-              <div className="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors duration-500"></div>
-            </div>
-            {/* CV Badge */}
-            <a 
-              href="#" 
-              className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-green text-white rounded-full flex flex-col items-center justify-center gap-1 shadow-xl hover:scale-110 transition-transform duration-300 group"
-            >
-              <FileText size={24} />
-              <span className="text-[10px] font-black uppercase tracking-tighter">Mon CV</span>
-              <ArrowUpRight size={16} className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
-          </div>
-
-          <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tighter leading-tight">
-              PASSIONNÉ PAR LE DÉVELOPPEMENT <br />
-              <span className="text-brand-blue">D'EXPÉRIENCES UNIQUES.</span>
-            </h2>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Basé à Paris, je combine mes compétences techniques en React et Node.js avec une expertise poussée en automatisation n8n pour transformer des idées complexes en produits digitaux performants.
-            </p>
-            <div className="space-y-6 pt-6">
-              <div className="flex items-center gap-6 border-b border-gray-200 pb-6">
-                <span className="text-brand-blue font-bold text-lg w-20">2023 - Pr.</span>
-                <div>
-                  <h4 className="font-bold text-xl">Freelance Engineer</h4>
-                  <p className="text-gray-500">Stratégie & Développement</p>
+    <section className="py-20 px-6 bg-brand-blue border-y-4 border-black">
+      <div className="max-w-5xl mx-auto">
+        <div className="bg-white border-4 border-black shadow-neo-lg p-6 md:p-12 rotate-1">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="shrink-0">
+              <div className="w-64 h-64 bg-gray-200 border-4 border-black shadow-neo relative overflow-hidden">
+                {/* Photo Placeholder */}
+                <div className="absolute inset-0 flex items-center justify-center bg-brand-green/20">
+                  <span className="text-6xl font-black opacity-20 rotate-45">PHOTO</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-6 border-b border-gray-200 pb-6">
-                <span className="text-brand-blue font-bold text-lg w-20">2021 - 23</span>
-                <div>
-                  <h4 className="font-bold text-xl">Automation Specialist</h4>
-                  <p className="text-gray-500">Digital Solutions Agency</p>
+                <div className="absolute bottom-0 left-0 right-0 bg-black text-white text-center py-2 font-bold uppercase tracking-widest text-sm">
+                  Yusuf • Dev
                 </div>
               </div>
             </div>
-            <button className="bg-brand-blue text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-brand-blue/90 transition-all flex items-center gap-3">
-              Travaillons ensemble
-              <ArrowUpRight size={20} />
-            </button>
+            
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase leading-[0.9]">
+                Qui est ce <br/><span className="text-brand-blue stroke-black" style={{WebkitTextStroke: '2px black', color: 'transparent'}}>type ?</span>
+              </h2>
+              <p className="text-xl font-medium mb-8 bg-brand-lila p-4 border-2 border-black shadow-neo-sm inline-block rotate-[-1deg]">
+                Développeur Fullstack obsédé par la performance et l'automatisation. Basé à Paris.
+              </p>
+              
+              <div className="flex flex-wrap justify-center md:justify-start gap-6">
+                <button className="neo-button bg-brand-green text-white px-6 py-3 flex items-center gap-3 text-sm md:text-base">
+                  <Download size={20} />
+                  TÉLÉCHARGER CV
+                </button>
+                <button className="neo-button bg-white text-black px-6 py-3 flex items-center gap-3 text-sm md:text-base">
+                  <FileText size={20} />
+                  MON HISTOIRE
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

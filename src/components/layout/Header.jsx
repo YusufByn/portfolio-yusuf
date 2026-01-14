@@ -7,37 +7,36 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const location = useLocation();
-
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-6 py-6">
-      <nav className="max-w-5xl mx-auto flex justify-between items-center bg-white/70 backdrop-blur-2xl rounded-3xl px-8 py-4 shadow-xl border border-white/20">
-        <Link to="/" className="text-2xl font-black text-gray-900 tracking-tighter">
-          YUSUF<span className="text-brand-blue">.</span>
+    <header className="fixed top-0 left-0 w-full z-50 px-6 py-6 pointer-events-none">
+      <nav className="max-w-6xl mx-auto flex justify-between items-center pointer-events-auto">
+        <Link to="/" className="neo-button bg-white px-4 py-2 rotate-[-2deg] hover:rotate-0 text-xl font-black text-black no-underline">
+          YUSUF<span className="text-brand-blue">.DEV</span>
         </Link>
         
-        <div className="hidden md:flex gap-10 items-center">
+        <div className="hidden md:flex gap-4 items-center">
           {navLinks.map(link => (
             <Link 
               key={link.name} 
               to={link.path} 
-              className="text-sm font-black uppercase tracking-widest text-gray-400 hover:text-brand-blue transition-colors"
+              className="neo-button bg-white px-4 py-2 hover:bg-brand-lila hover:-translate-y-1 text-sm text-black no-underline"
             >
               {link.name}
             </Link>
           ))}
           <Link 
             to="/contact" 
-            className="bg-brand-green text-white px-8 py-3 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-brand-green/20"
+            className="neo-button bg-brand-green text-white px-6 py-2 hover:bg-green-700 hover:-rotate-2 no-underline"
           >
-            Contact
+            ME CONTACTER
           </Link>
         </div>
 
-        {/* Mobile Menu Button - simplified */}
-        <button className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5">
-          <div className="w-6 h-0.5 bg-gray-900 rounded-full"></div>
-          <div className="w-6 h-0.5 bg-gray-900 rounded-full"></div>
+        {/* Mobile Menu Button */}
+        <button className="md:hidden neo-button bg-white w-12 h-12 flex flex-col justify-center items-center gap-1.5">
+          <div className="w-6 h-0.5 bg-black"></div>
+          <div className="w-6 h-0.5 bg-black"></div>
+          <div className="w-6 h-0.5 bg-black"></div>
         </button>
       </nav>
     </header>

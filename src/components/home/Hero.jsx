@@ -1,77 +1,73 @@
 import { motion } from 'framer-motion';
 
-const stats = [
-  { label: "PROJETS COMPLÉTÉS", value: "+46" },
-  { label: "ANNÉES D'EXPÉRIENCE", value: "+5" },
-  { label: "WORKFLOWS N8N", value: "+100" },
-];
-
 export default function Hero() {
   return (
-    <section className="pt-32 pb-20 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-8">
+    <section className="pt-40 pb-20 px-6 overflow-hidden min-h-screen flex items-center">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 relative z-10">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 50, rotate: 5 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              className="bg-white border-4 border-black p-8 shadow-neo-lg relative"
             >
-              <h2 className="text-brand-blue font-bold tracking-[0.2em] text-sm mb-4 uppercase">
-                Yusuf - Fullstack Developer
+              <div className="absolute -top-4 -right-4 bg-brand-blue text-white px-4 py-1 border-2 border-black shadow-neo-sm font-bold rotate-3">
+                AVAILABLE FOR HIRE
+              </div>
+              
+              <h2 className="font-bold tracking-widest text-sm mb-4 uppercase bg-brand-lila inline-block px-2 border border-black">
+                Fullstack Developer
               </h2>
-              <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.8] mb-8 text-gray-900 tracking-tighter">
-                SOFTWARE <br />
-                <span className="text-brand-blue">ENGINEER</span>
+              <h1 className="text-5xl md:text-7xl font-black leading-none mb-6 text-black uppercase">
+                Building <span className="text-brand-blue stroke-black">Digital</span><br />
+                <span className="bg-brand-green text-white px-2">Chaos</span> into<br />
+                Order.
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 max-w-xl leading-relaxed">
-                Spécialisé dans la création d'expériences utilisateur intuitives et l'automatisation de processus complexes.
+              <p className="text-xl text-black font-medium border-l-4 border-black pl-4 mb-8 max-w-lg">
+                J'automatise ce qui est ennuyeux et je développe ce qui est complexe. Expert n8n & React.
               </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <button className="neo-button bg-brand-blue text-white px-8 py-4 text-lg hover:rotate-1">
+                  VOIR MES PROJETS
+                </button>
+                <button className="neo-button bg-white text-black px-8 py-4 text-lg hover:-rotate-1">
+                  TÉLÉCHARGER CV
+                </button>
+              </div>
             </motion.div>
           </div>
           
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-5 relative">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col gap-6"
+              animate={{ rotate: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="aspect-square bg-brand-green border-4 border-black shadow-neo-lg rounded-full flex items-center justify-center relative overflow-hidden"
             >
-              {stats.map((stat, i) => (
-                <div key={i} className="border-t border-gray-200 pt-6">
-                  <div className="text-4xl font-bold text-gray-900">{stat.value}</div>
-                  <div className="text-xs font-bold text-gray-400 tracking-widest uppercase">{stat.label}</div>
-                </div>
-              ))}
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-20"></div>
+              <div className="text-[12rem] font-black text-white/90 leading-none select-none">
+                Y.
+              </div>
+              
+              {/* Floating Badges */}
+              <motion.div 
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="absolute top-10 right-0 bg-white border-2 border-black p-3 shadow-neo rotate-12"
+              >
+                <span className="font-bold text-xl">React ⚛️</span>
+              </motion.div>
+              
+              <motion.div 
+                animate={{ y: [10, -10, 10] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-10 left-0 bg-white border-2 border-black p-3 shadow-neo -rotate-12"
+              >
+                <span className="font-bold text-xl">n8n 🚀</span>
+              </motion.div>
             </motion.div>
           </div>
-        </div>
-
-        {/* Marquee effect inspired by Sawad */}
-        <div className="mt-20 border-y border-gray-200 py-8 overflow-hidden flex whitespace-nowrap">
-          <motion.div 
-            animate={{ x: [0, -1000] }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-            className="flex gap-20 text-2xl font-black uppercase text-gray-300 items-center"
-          >
-            <span>n8n Expert</span>
-            <div className="w-3 h-3 bg-brand-green rounded-full"></div>
-            <span>React Developer</span>
-            <div className="w-3 h-3 bg-brand-blue rounded-full"></div>
-            <span>Automation Strategist</span>
-            <div className="w-3 h-3 bg-brand-green rounded-full"></div>
-            <span>UI/UX Designer</span>
-            <div className="w-3 h-3 bg-brand-blue rounded-full"></div>
-            {/* Duplicated for seamless loop */}
-            <span>n8n Expert</span>
-            <div className="w-3 h-3 bg-brand-green rounded-full"></div>
-            <span>React Developer</span>
-            <div className="w-3 h-3 bg-brand-blue rounded-full"></div>
-            <span>Automation Strategist</span>
-            <div className="w-3 h-3 bg-brand-green rounded-full"></div>
-            <span>UI/UX Designer</span>
-            <div className="w-3 h-3 bg-brand-blue rounded-full"></div>
-          </motion.div>
         </div>
       </div>
     </section>
